@@ -3,3 +3,10 @@
 <p>Name: <%=@campsite.name%></p>
 <p>Address: <%=@campsite.address%></p>
 <p>Bio: <%=@campsite.bio%></p>
+
+<h1> Reviews </h1>
+
+<%@campsite.reviews.each do |r|%>
+    <p><li>Rating: <%= r.rating%></li>
+    <li>Review: <%= r.review%></li></p>
+<%end%>
