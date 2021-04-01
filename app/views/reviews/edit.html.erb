@@ -9,4 +9,6 @@
     <%= f.text_area :review%><br>
 
     <%= f.submit %>
-<% end %>
+<% end %><br>
+
+<br><%=button_to("Delete Review", @review, method: :delete) %>

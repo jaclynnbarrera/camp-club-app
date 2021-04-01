@@ -4,10 +4,6 @@ class CampsitesController < ApplicationController
         @campsites = Campsite.all
     end 
 
-    def show
-        @campsite = Campsite.find(params[:id])
-    end
-
     def new
         @campsite = Campsite.new
     end
@@ -17,12 +13,18 @@ class CampsitesController < ApplicationController
         redirect_to campsite_path(@campsite)
     end
 
+    def show
+        @campsite = Campsite.find(params[:id])
+    end
+
     def edit
-        
+        @campsite = Campsite.find(params[:id])
     end
 
     def update
-        
+        @campsite = Campsite.find(params[:id])
+        @campsite.update(campsite_params)
+        redirect_to campsite_path(@campsite)
     end
 
     def destroy
@@ -37,5 +39,4 @@ class CampsitesController < ApplicationController
         params.require(:campsite).permit(:name, :address, :bio)
     end
 
-    
 end

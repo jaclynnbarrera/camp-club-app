@@ -1,0 +1,17 @@
+<h1>Edit Campsite</h1>
+
+<%= form_for @campsite do |f| %>
+
+    <label>Name<label><br>
+    <%= f.text_field :name%><br><br>
+
+    <label>Address<label><br>
+    <%= f.text_field :address%><br><br>
+
+     <label>About<label><br>
+    <%= f.text_area :bio%><br>
+    <br>
+    <%= f.submit %>
+<% end %><br>
+
+<br><%=button_to("Delete Campsite", @campsite, method: :delete) %>
