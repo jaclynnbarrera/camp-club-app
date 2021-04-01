@@ -4,10 +4,11 @@
 <h2>All your reviews:</h2>
 
 <%@user.reviews.each do |r|%>
-    <p><%=r.campsite.name%>:</p>
+    <p><%=link_to r.campsite.name, campsite_path%>:</p>
         <li><%=r.review%></li>
         <li><%=r.rating%></li>
 <%end%>
 
-<h2>Explore All Campsites</h2>
-<%=link_to "Explore All Campsites", campsites_path()%>
+<h2><%=link_to "Explore All Campsites", campsites_path%></h2>
+
+<h2><%=link_to "Write A New Campsite Review", new_review_path%></h2>
