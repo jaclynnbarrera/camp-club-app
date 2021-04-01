@@ -11,4 +11,4 @@
     <%= f.submit %>
 <% end %><br>
 
-<br><%=button_to("Delete Review", @review, method: :delete) %>
+<br><%=button_to("Delete Review", @review, method: :delete, data: {confirm: "Are you sure?"}) %>
