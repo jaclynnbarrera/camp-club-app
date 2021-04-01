@@ -5,7 +5,7 @@ class CampsitesController < ApplicationController
     end 
 
     def show
-        @campsite = Campsite.find_by_id(params[:id])
+        @campsite = Campsite.find(params[:id])
     end
 
     def new
@@ -23,6 +23,12 @@ class CampsitesController < ApplicationController
 
     def update
         
+    end
+
+    def destroy
+        @campsite = Campsite.find(params[:id])
+        @campsite.delete
+        redirect_to campsites_path
     end
 
     private

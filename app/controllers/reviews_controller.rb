@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         @review.save
-        redirect_to review_path(@review)
+        redirect_to campsite_path(@review.campsite_id)
     end
 
     def edit 

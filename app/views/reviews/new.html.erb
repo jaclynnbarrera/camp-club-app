@@ -8,8 +8,8 @@
     <label>Short Review<label><br>
     <%= f.text_area :review%><br>
 
-     <label>Campsite ID<label><br>
-    <%= f.text_field :campsite_id%><br>
+    <label>Campsite<label><br>
+    <%= f.collection_select :campsite_id, Campsite.all, :id, :name  %><br>
 
      <label>User ID<label><br>
     <%= f.text_field :user_id%><br>
