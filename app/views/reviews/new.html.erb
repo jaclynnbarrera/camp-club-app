@@ -1,0 +1,11 @@
+<h2>Write A New Review</h2>
+
+<%= form_for @review do |f| %>
+
+    <label>Rating (1-5)<label>
+    <%= f.select :rating, ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars']%>
+
+    <label>Short Review<label>
+    <%= f.text_area :review%>
+
+<% end %>
