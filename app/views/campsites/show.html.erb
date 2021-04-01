@@ -1,12 +1,13 @@
-<h1>Here's information on a particular campsite</h1>
-
-<p>Name: <%=@campsite.name%></p>
+<h1><%=@campsite.name%></h1>
 <p>Address: <%=@campsite.address%></p>
 <p>Bio: <%=@campsite.bio%></p>
 
-<h1> Reviews </h1>
+<h1> Reviews (<%=@campsite.reviews.count%>) </h1>
 
 <%@campsite.reviews.each do |r|%>
     <p><li>Rating: <%= r.rating%></li>
-    <li>Review: <%= r.review%></li></p>
+    <li>Review: <%= r.review%></li>
+    <li><%= r.created_at.strftime("%B %Y")%></li></p>
 <%end%>
+
+<h3>Write Review</h3>

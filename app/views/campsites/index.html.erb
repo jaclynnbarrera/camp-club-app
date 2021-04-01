@@ -1,6 +1,6 @@
-<h1>Here's a List of ALL campsites</>
+<h1>Explore Campsites</h1>
 
-<ul><%@campsites.each do |c|%>
-    <li>Name: <%=c.name%></li>
-    <li>Address: <%=c.address%></li>
-<%end%></ul>
+<%@campsites.each do |c|%>
+    <h3><li>Name: <%=c.name%></li>
+    <li>Address: <%=c.address%></li></h3>
+<%end%>
