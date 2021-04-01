@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
+    
     def show
-        @review = Review.find_by(params[:id])
+       @review = Review.find(params[:id])
     end
 
     def index
@@ -8,7 +9,7 @@ class ReviewsController < ApplicationController
     end
 
     def new
-
+        @review = Review.new
     end
 
     def create
@@ -30,7 +31,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:review, :rating, :user_id, :campsite_id)
+        params.require(:review).permit(:rating, :review, :campsite_id, :user_id)
     end
 
 end
