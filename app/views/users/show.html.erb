@@ -1,4 +1,10 @@
 <h1>Hi there, <%=@user.first_name%></h1>
-<h3>CAMP CLUB member since <%=@user.created_at.strftime("%B %Y")%></h3>
+<h3>CAMP CLUB member since: <%=@user.created_at.strftime("%B %Y")%></h3>
 
-<h1>Hi there, <%=@user.reviews.first%></h1>
+<h2>All your reviews:</h2>
+
+<%@user.reviews.each do |r|%>
+    <p><%=r.campsite.name%>:</p>
+        <li><%=r.review%></li>
+        <li><%=r.rating%></li>
+<%end%>
