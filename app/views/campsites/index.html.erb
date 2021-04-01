@@ -1,6 +1,5 @@
 <h1>Explore Campsites</h1>
 
 <%@campsites.each do |c|%>
-    <h3><li>Name: <%=c.name%></li>
-    <li>Address: <%=c.address%></li></h3>
+    <h3><li><%=link_to c.name, campsite_path(c)%> (<%=c.address%>)</li></h3>
 <%end%>
