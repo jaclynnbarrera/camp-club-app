@@ -1,15 +1,15 @@
 <h1>Sign Up</h1>
 
 <%= form_for(@user) do |f| %>
-    <label>First Name:</label><br>
+    <label>First Name</label><br>
     <%= f.text_field :first_name %><br>
-
-    <label>Last Name:</label><br>
+    <br>
+    <label>Last Name</label><br>
     <%= f.text_field :last_name %><br>
-
-    <label>Email:</label><br>
+    <br>
+    <label>Email</label><br>
     <%= f.text_field :email %><br>
-
+    <br>
     <%= f.submit %>
     
 <% end %>

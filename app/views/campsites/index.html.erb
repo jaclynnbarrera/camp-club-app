@@ -3,3 +3,5 @@
 <%@campsites.each do |c|%>
     <h3><li><%=link_to c.name, campsite_path(c)%> (<%=c.address%>)</li></h3>
 <%end%>
+
+<h3><%=button_to "New Campsite", new_campsite_path, method: "get"%></h3>
