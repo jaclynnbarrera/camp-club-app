@@ -1,5 +1,10 @@
 <h1>New Campsite</h1>
 
+<% @errors && @errors.each do |e|%>
+    <li><%=e%></li>
+<%end%>
+
+
 <%= form_for @campsite do |f| %>
 
     <label>Name<label><br>

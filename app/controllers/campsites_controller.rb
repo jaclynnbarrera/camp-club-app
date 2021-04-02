@@ -9,8 +9,13 @@ class CampsitesController < ApplicationController
     end
 
     def create 
-        @campsite = Campsite.create(campsite_params)
-        redirect_to campsite_path(@campsite)
+        @campsite = Campsite.new(campsite_params)
+        if @campsite.save
+            redirect_to campsite_path(@campsite)
+        else
+            @errors = @campsite.errors.full_messages
+            render :new
+        end
     end
 
     def show
@@ -23,8 +28,13 @@ class CampsitesController < ApplicationController
 
     def update
         @campsite = Campsite.find(params[:id])
-        @campsite.update(campsite_params)
-        redirect_to campsite_path(@campsite)
+        #update will return false if it doesnt
+        if @campsite.update(campsite_params)
+            redirect_to campsite_path(@campsite)
+        else
+            @errors = @campsite.errors.full_messages
+            render :edit
+        end
     end
 
     def destroy
