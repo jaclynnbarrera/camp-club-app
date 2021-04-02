@@ -6,10 +6,12 @@
 
     <%=f.label "Review"%><br>
     <%= f.text_area :review%><br>
-
+    
     <label>Campsite<label><br>
-    <%= f.collection_select :campsite_id, @campsites, :id, :name  %><br>
-
+    <%if !@campsite%>
+        <%= f.collection_select :campsite_id, @campsites, :id, :name  %><br>
+    <%end%>
+    
     <label>User<label><br>
     <%= f.collection_select :user_id, @users, :id, :first_name  %><br>
 

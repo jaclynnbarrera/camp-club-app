@@ -9,9 +9,16 @@ class ReviewsController < ApplicationController
     end
 
     def new
-        @review = Review.new
-        @campsites = Campsite.all
-        @users = User.all
+        if params[:campsite_id]
+            @campsite = Campsite.find_by(id: params[:campsite_id])
+            @review = @campsite.reviews.build
+            @campsites = Campsite.all
+            @users = User.all
+        else
+            @review = Review.new
+            @campsites = Campsite.all
+            @users = User.all
+        end
     end
 
     def create

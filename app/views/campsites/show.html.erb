@@ -10,4 +10,7 @@
     <li><%= r.created_at.strftime("%B %Y")%></li></p>
 <%end%>
 
-<h3>Write Review</h3>    
+<h2><%=link_to "Write A Review", new_campsite_review_path(@campsite)%></h2><br>
+<%=link_to "Edit", edit_campsite_path(@campsite)%>
+
+ 
