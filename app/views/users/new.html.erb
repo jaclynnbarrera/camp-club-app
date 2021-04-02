@@ -1,5 +1,9 @@
 <h1>Sign Up</h1>
 
+<% @errors && @errors.each do |e|%>
+    <li><%=e%></li>
+<%end%>
+
 <%= form_for(@user) do |f| %>
     <label>First Name</label><br>
     <%= f.text_field :first_name %><br>
