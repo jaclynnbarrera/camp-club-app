@@ -1,9 +1,14 @@
 class CampsitesController < ApplicationController
    
     def index 
-        @campsites = Campsite.all
+        if params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            @campsites = user.campsites
+        else
+            @campsites = Campsite.all
+        end
     end 
-
+ 
     def new
         @campsite = Campsite.new
         @campsite.reviews.build
