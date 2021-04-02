@@ -4,17 +4,31 @@
     <li><%=e%></li>
 <%end%>
 
-
 <%= form_for @campsite do |f| %>
 
-    <label>Name<label><br>
-    <%= f.text_field :name%><br><br>
+    <%=f.label "Name"%>
+    <%=f.text_field :name%><br><br>
 
-    <label>Address<label><br>
-    <%= f.text_field :address%><br><br>
+    <%=f.label "Address"%>
+    <%=f.text_field :address%><br><br>
 
-     <label>About<label><br>
-    <%= f.text_area :bio%><br>
+    <%=f.label "Bio"%>
+    <%=f.text_area :bio%><br>
     <br>
+
+    <h2><%=f.label ("Review:")%></h2>
+    <%=f.fields_for :reviews do |r|%>
+
+        <%=r.label "Rating (1-5)"%>
+        <%= r.select :rating, ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars']%><br><br>
+
+        <%=r.label "Review"%>
+        <%=r.text_area :review%><br>
+
+        <%=r.label "User"%>
+        <%=r.collection_select :user_id, @users, :id, :first_name %>
+
+    <%end%>
+
     <%= f.submit %>
-<% end %>
+<% end %> 

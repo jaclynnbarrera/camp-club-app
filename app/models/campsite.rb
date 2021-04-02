@@ -4,8 +4,8 @@ class Campsite < ApplicationRecord
     #maybe add length validation?
     has_many :reviews
     has_many :users, through: :reviews
-    
-     before_validation :make_title_case
+    before_validation :make_title_case
+    accepts_nested_attributes_for :reviews
 
      def make_title_case
         self.name = self.name.titlecase
