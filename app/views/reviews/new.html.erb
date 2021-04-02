@@ -1,20 +1,25 @@
 <h2>Write A New Campsite Review</h2>
 
+<% @errors && @errors.each do |e|%>
+    <li><%=e%></li>
+<%end%>
+
 <%if @campsite%>
     <h3><%=@campsite.name%></h3>
 <%end%>
 
-<%= form_for @review, url: form_url_helper(@campsite) do |f| %>
+<%= form_for @review do |f| %>
     <%=f.label "Rating(1-5)"%>
     <%= f.select :rating, ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars']%><br><br>
 
     <%=f.label "Review"%><br>
     <%= f.text_area :review%><br>
     
-    <%if !@campsite%>
-        <label>Campsite<label><br>
-        <%= f.collection_select :campsite_id, @campsites, :id, :name %><br>
-    <%end%>
+    <%=f.label "User"%><br>
+    <%=f.collection_select :user_id, User.all, :id, :first_name%>
+
+    <%=f.label "Campsite"%><br>
+    <%=f.collection_select :campsite_id, Campsite.all, :id, :name%>
 
     <%= f.submit %>
 <% end %>

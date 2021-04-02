@@ -16,3 +16,7 @@
 .field_with_errors input {
     border-color: red;
 }
+
+.field_with_errors textarea {
+    border-color: red;
+}
