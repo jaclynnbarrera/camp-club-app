@@ -25,9 +25,6 @@
         <%=r.label "Review"%>
         <%=r.text_area :review%><br>
 
-        <%=r.label "User"%>
-        <%=r.collection_select :user_id, @users, :id, :first_name %>
-
     <%end%>
 
     <%= f.submit %>

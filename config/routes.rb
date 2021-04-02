@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :campsites do
     resources :reviews
+    resources :users
   end
   
   resources :users do 

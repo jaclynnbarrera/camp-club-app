@@ -1,12 +1,11 @@
 <h1>Hi there, <%=@user.first_name%></h1>
 <h3>CAMP CLUB member since: <%=@user.created_at.strftime("%B %Y")%></h3>
 
-<h2>All your reviews:</h2>
+<h2>Your Visited Campsites</h2>
 
 <%@user.reviews.each do |r|%>
-    <p><%=link_to r.campsite.name, campsite_path%>:</p>
-        <li><%=r.review%></li>
-        <li><%=r.rating%></li>
+    <h3><%=link_to r.campsite.name, campsite_path%> | <%=link_to "See Review", r%></h3>
+
 <%end%>
 
 <h2><%=link_to "Explore All Campsites", campsites_path%></h2>

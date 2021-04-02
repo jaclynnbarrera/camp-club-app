@@ -13,16 +13,18 @@ class ReviewsController < ApplicationController
             @campsite = Campsite.find_by(id: params[:campsite_id])
             @review = @campsite.reviews.build
             @campsites = Campsite.all
-            @users = User.all
         else
             @review = Review.new
             @campsites = Campsite.all
-            @users = User.all
         end
     end
 
     def create
-        @review = Review.new(review_params)
+        @review = Review.create(review_params)
+        @review.user = current_user
+        if params[:campsite_id]
+            @review.campsite_id = params[:campsite_id]
+        end
         @review.save
         redirect_to campsite_path(@review.campsite_id)
     end
@@ -46,7 +48,8 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:rating, :review, :campsite_id, :user_id)
+        params.require(:review).permit(:rating, :review, :campsite_id)
     end
 
 end
+
