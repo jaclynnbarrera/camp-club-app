@@ -10,6 +10,8 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
+        @campsites = Campsite.all
+        @users = User.all
     end
 
     def create
