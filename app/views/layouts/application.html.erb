@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <%=link_to "All Campsites", campsites_path%>
+    <%=link_to "New Campsite", new_campsite_path%>
+    <%=button_to "Log Out", logout_path, method: :post %>
+
     <%= yield %>
   </body>
 </html>
