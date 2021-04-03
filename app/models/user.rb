@@ -8,6 +8,8 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :campsites, through: :reviews
 
+    has_secure_password
+
     def make_title_case
         self.first_name = self.first_name.titlecase
         self.last_name = self.last_name.titlecase
