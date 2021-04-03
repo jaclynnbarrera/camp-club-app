@@ -1,14 +1,19 @@
 class ReviewsController < ApplicationController
     
-    def show
+    def show  
        @review = Review.find(params[:id])
     end
 
     def index
-        @reviews = Review.all
+        if params[:campsite_id]
+            @campsite = Campsite.find_by(id: params[:campsite_id])
+            @reviews = @campsite.reviews
+        else
+            redirect_to campsites_path
+        end
     end
 
-    def new
+    def new 
         if params[:campsite_id]
             @campsite = Campsite.find_by(id: params[:campsite_id])
             @review = @campsite.reviews.build
@@ -18,7 +23,12 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.new(review_params)
+        @review = Review.create(review_params)
+        @review.user = current_user
+        if params[:campsite_id]
+            @review.campsite_id = params[:campsite_id]
+        end
+
         if @review.save
             redirect_to campsite_path(@review.campsite)
         else
@@ -46,7 +56,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:rating, :review, :campsite_id, :user_id)
+        params.require(:review).permit(:rating, :review, :campsite_id)
     end
 
 end

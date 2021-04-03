@@ -4,12 +4,12 @@
 
 <h1> Reviews (<%=@campsite.reviews.count%>) </h1>
 
-<%@campsite.reviews.each do |r|%>
+<%@campsite.reviews.take(3).each do |r|%>
     <p><li>Rating: <%= r.rating%></li>
     <li>Review: <%= r.review%></li>
     <li><%= r.created_at.strftime("%B %Y")%></li></p>
 <%end%>
 
-<h2><%=link_to "Write A Review", new_campsite_review_path(@campsite)%></h2>
+<h3><%=link_to "See All Reviews", campsite_reviews_path(@campsite)%> </h3>
 
-<h2><%=link_to "See All Users", users_path%> </h2><br>
+<h3><%=link_to "Write A Review", new_campsite_review_path(@campsite)%></h3>

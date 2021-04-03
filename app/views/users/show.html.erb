@@ -4,7 +4,7 @@
 <h2>Your Visited Campsites</h2>
 
 <%@user.reviews.each do |r|%>
-    <h3><%=link_to r.campsite.name, campsite_path%> | <%=link_to "See Review", r%></h3>
+    <h3><%=link_to r.campsite.name, campsite_path%> | <%=link_to "See Review"%></h3>
 
 <%end%>
 

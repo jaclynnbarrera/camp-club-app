@@ -8,18 +8,18 @@
     <h3><%=@campsite.name%></h3>
 <%end%>
 
-<%= form_for @review do |f| %>
+<%= form_for @review, url: form_url_helper(@campsite) do |f| %>
     <%=f.label "Rating(1-5)"%>
     <%= f.select :rating, ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars']%><br><br>
 
     <%=f.label "Review"%><br>
     <%= f.text_area :review%><br>
-    
-    <%=f.label "User"%><br>
-    <%=f.collection_select :user_id, User.all, :id, :first_name%>
 
-    <%=f.label "Campsite"%><br>
-    <%=f.collection_select :campsite_id, Campsite.all, :id, :name%>
+    <%if !@campsite%>
+        <%=f.label "Campsite"%><br>
+        <%=f.collection_select :campsite_id, Campsite.all, :id, :name%>
+    <%end%>
 
     <%= f.submit %>
 <% end %>
+
