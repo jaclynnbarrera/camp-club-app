@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-    def index
-        @users = User.all
-    end
+    # def index
+    #     @users = User.all
+    # end
     
     def new
         @user = User.new
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            #login user
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             @errors = @user.errors.full_messages
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email)
+        params.require(:user).permit(:username, :password)
     end
     
 end
