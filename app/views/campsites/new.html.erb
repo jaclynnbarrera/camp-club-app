@@ -16,17 +16,6 @@
     <%=f.text_area :bio%><br>
     <br>
 
-    <h2><%=f.label ("Review:")%></h2>
-    <%=f.fields_for :reviews do |r|%>
-
-        <%=r.label "Rating (1-5)"%>
-        <%= r.select :rating, ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars']%><br><br>
-
-        <%=r.label "Review"%>
-        <%=r.text_area :review%><br>
-
-    <%end%>
-
     <%= f.submit %>
 
 <% end %> 
