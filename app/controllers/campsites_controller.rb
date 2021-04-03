@@ -12,11 +12,11 @@ class CampsitesController < ApplicationController
     def new
         @campsite = Campsite.new
         @campsite.reviews.build
-        @users = User.all
     end
 
     def create 
         @campsite = Campsite.new(campsite_params)
+
         if @campsite.save
             redirect_to campsite_path(@campsite)
         else
@@ -53,7 +53,7 @@ class CampsitesController < ApplicationController
     private
 
     def campsite_params
-        params.require(:campsite).permit(:name, :address, :bio)
+        params.require(:campsite).permit(:name, :address, :bio, reviews_attributes: [:rating, :review, :user_id])
     end
 
 end
