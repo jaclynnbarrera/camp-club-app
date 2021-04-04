@@ -12,10 +12,6 @@
     <%=f.label "Address"%>
     <%=f.text_field :address%><br><br>
 
-    <%=f.label "Bio"%>
-    <%=f.text_area :bio%><br>
-    <br>
-
     <h3><%=f.label "Review"%></h3>
     <%=f.fields_for :reviews do |m|%>
         <%=m.label "Rating"%>

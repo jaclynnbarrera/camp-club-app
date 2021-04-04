@@ -1,3 +1,4 @@
+<body class = "sign-up-sign-in">
 <h1>Log In</h1>
 
 <% @errors && @errors.each do |e|%>
@@ -13,3 +14,6 @@
     <br>
     <%=f.submit "Log In" %>
 <%end%>
+<br>
+    <%=link_to "Go To Sign Up", signup_path %>
+</body>

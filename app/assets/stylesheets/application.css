@@ -13,10 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
 .field_with_errors input {
     border-color: red;
 }
 
 .field_with_errors textarea {
     border-color: red;
+}
+
+.home-page {
+    color: green;
+    font-family: monospace;
+    /* background-color: beige; */
+    text-align: center;
+    padding: 200px
+}
+
+.sign-up-sign-in {
+    color: green;
+    font-family: monospace;
+    background-color: beige;
+    text-align: center;
+    padding: 200px
 }

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController\
 
     def new
-        # @user = User.new
+        @user = User.new
     end
 
     def create
@@ -24,4 +24,20 @@ class SessionsController < ApplicationController\
         redirect_to '/signup'
     end
 
+    def FBcreate
+        @user = User.find_or_create_by(username: auth) do |u| 
+            u.password = "password"
+            #trigger email to set real password
+        end
+        @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+    end
+
+    private
+      
+    def auth
+        request.env['omniauth.auth']['info']['name'].split.first
+    end
+    
 end

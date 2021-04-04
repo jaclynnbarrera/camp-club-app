@@ -5,4 +5,5 @@ class User < ApplicationRecord
     has_many :campsites, through: :reviews
 
     has_secure_password
+
 end

@@ -1,17 +1,13 @@
 <h1>Edit User</h1>
 
 <%= form_for(@user) do |f| %>
-    <label>First Name</label><br>
-    <%= f.text_field :first_name %><br>
+    <%=f.label "Username"%><br>
+    <%= f.text_field :username %><br>
     <br>
-    <label>Last Name</label><br>
-    <%= f.text_field :last_name %><br>
-    <br>
-    <label>Email</label><br>
-    <%= f.text_field :email %><br>
+    <%=f.label "Password"%><br>
+    <%= f.password_field :password %><br>
     <br>
     <%= f.submit %>
-    
 <% end %><br>
 
 <%=button_to("Delete User", @user, method: :delete) %>

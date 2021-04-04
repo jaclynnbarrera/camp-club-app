@@ -1,3 +1,4 @@
+<body class = "sign-up-sign-in">
 <h1>Sign Up</h1>
 
 <% @errors && @errors.each do |e|%>
@@ -14,3 +15,7 @@
     <%= f.submit "Sign Up" %>
     
 <% end %>
+<br>
+    <%=link_to "Go To Log In", login_path %>
+    <%= link_to('Log in with Facebook!', '/auth/facebook') %> 
+</body>
