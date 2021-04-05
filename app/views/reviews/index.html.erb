@@ -1,8 +1,9 @@
+
+
 <u><h1>All Reviews for <%=@campsite.name%></h1></u>
 
 <%@reviews.each do |r|%>
     <p><li>Rating: <%= r.rating%></li>
     <li>Review: <%= r.review%></li>
-    <li>Go To User: <%=link_to r.user_id, user_path(r.user_id) %></li>
-    <li><%= r.created_at.strftime("%B %Y")%></li></p>
-<%end%>
+    <li>Posted: <%= r.created_at.strftime("%B %Y")%></li></p>
+    <%end%>

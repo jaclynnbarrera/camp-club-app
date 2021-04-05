@@ -3,5 +3,8 @@
 
 <h2>Your Visited Campsites</h2>
 
-<%=link_to @reviews.first.campsite.name, campsite_path(@reviews.first.campsite)%>
+<%@reviews.each do |r| %>
+    <p><%=link_to r.campsite.name, campsite_path(r.campsite) %></p>
+<%end%>
+
 <h2><%=link_to "Explore All Campsites", campsites_path%></h2>

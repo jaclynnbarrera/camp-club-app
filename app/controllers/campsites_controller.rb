@@ -1,9 +1,12 @@
 class CampsitesController < ApplicationController
    
     def index 
+
         if params[:user_id]
             user = User.find_by(id: params[:user_id])
             @campsites = user.campsites
+        elsif params[:state]
+            @campsites = Campsite.state_search(params[:state])
         else
             @campsites = Campsite.all
         end
@@ -53,7 +56,8 @@ class CampsitesController < ApplicationController
     private
 
     def campsite_params
-        params.require(:campsite).permit(:name, :address, :bio, reviews_attributes: [:rating, :review, :user_id])
+        params.require(:campsite).permit(:name, :state, :rv, :bathroom, :firewood, :pets, reviews_attributes: [:rating, :review, :user_id])
     end
 
 end
+

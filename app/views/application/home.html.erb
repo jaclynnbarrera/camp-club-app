@@ -1,13 +1,6 @@
-<body class="home-page">
+<!--<body class="home-page"> -->
+  <div class="home-page">
     <h1>Welcome to Camp Club</h1>
     <%= image_tag ("tent.jpg") %><br>
-
-    <%if current_user %>
-      <%=link_to "All Campsites", campsites_path%>
-      <%=link_to "New Campsite", new_campsite_path%>
-      <%=button_to "Log Out", logout_path, method: :post %>
-    <%else%>
-      <%=link_to "Log In", login_path%>
-      <%=link_to "Sign Up", signup_path%>
-    <%end%>
-</body>
+    </div>
+<!-- </body> -->

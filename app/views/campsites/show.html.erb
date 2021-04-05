@@ -1,7 +1,18 @@
 <h1><%=@campsite.name%></h1>
-<p>Address: <%=@campsite.address%></p>
+<h2>State: <%=@campsite.state%></h2>
 
-<h1> Reviews (<%=@campsite.reviews.count%>) </h1>
+<u><h2>Campsite Attributes</h2></u>
+
+<h3>Has Hookup RV? <%=@campsite.rv%></h3>
+
+<h3>Has Bathrooms and Showers Nearby? <%=@campsite.bathroom%></h3>
+
+<h3>Has Firewood For Sale? <%=@campsite.firewood%></h3>
+
+<h3>Pet Friendly? <%=@campsite.pets%></h3>
+
+<u><h2>Campsite Reviews (<%=@campsite.reviews.count%>) </h2></u>
+
 
 <%@campsite.reviews.take(3).each do |r|%>
     <p><li>Rating: <%= r.rating%></li>
@@ -9,6 +20,6 @@
     <li><%= r.created_at.strftime("%B %Y")%></li></p>
 <%end%>
 
-<h3><%=link_to "See All Reviews", campsite_reviews_path(@campsite)%> </h3>
+<h4><%=link_to "See All Reviews", campsite_reviews_path(@campsite)%> </h4>
 
-<h3><%=link_to "Write A Review", new_campsite_review_path(@campsite)%></h3>
+<h4><%=link_to "Write A Review", new_campsite_review_path(@campsite)%></h4>

@@ -10,7 +10,7 @@
     <%=f.text_field :name%><br><br>
 
     <%=f.label "State"%>
-    <%=f.select :state, options_for_select(us_states, "CA")%><br><br>
+    <%= f.select :state, collection: Campsite::STATES %>
 
     <%=f.label "Has RV Hookups?"%>
     <%=f.select :rv, ['YES', 'NO']%>
@@ -23,7 +23,6 @@
 
     <%=f.label "Pet Friendly?"%>
     <%=f.select :pets, ['YES', 'NO']%>
-
 
     <h3><%=f.label "Review"%></h3>
     <%=f.fields_for :reviews do |m|%>
@@ -40,3 +39,4 @@
     <%= f.submit "Create New Campsite" %>
 
 <% end %>
+
