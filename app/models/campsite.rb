@@ -7,8 +7,9 @@ class Campsite < ApplicationRecord
     before_validation :make_title_case
     accepts_nested_attributes_for :reviews
 
-     def make_title_case
+    def make_title_case
         self.name = self.name.titlecase
     end
+
     
 end  

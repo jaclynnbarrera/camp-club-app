@@ -3,9 +3,5 @@
 
 <h2>Your Visited Campsites</h2>
 
-<%@user.reviews.each do |r|%>
-    <h3><%=link_to r.campsite.name, campsite_path(r.campsite)%> | <%=link_to "See Review", review_path(r.id)%></h3>
-
-<%end%>
-
+<%=link_to @reviews.first.campsite.name, campsite_path(@reviews.first.campsite)%>
 <h2><%=link_to "Explore All Campsites", campsites_path%></h2>

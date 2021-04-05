@@ -9,8 +9,21 @@
     <%=f.label "Name"%>
     <%=f.text_field :name%><br><br>
 
-    <%=f.label "Address"%>
-    <%=f.text_field :address%><br><br>
+    <%=f.label "State"%>
+    <%=f.select :state, options_for_select(us_states, "CA")%><br><br>
+
+    <%=f.label "Has RV Hookups?"%>
+    <%=f.select :rv, ['YES', 'NO']%>
+
+    <%=f.label "Bathroom/Shower?"%>
+    <%=f.select :bathroom, ['YES', 'NO']%>
+
+    <%=f.label "Firewood for Sale?"%>
+    <%=f.select :firewood, ['YES', 'NO']%>
+
+    <%=f.label "Pet Friendly?"%>
+    <%=f.select :pets, ['YES', 'NO']%>
+
 
     <h3><%=f.label "Review"%></h3>
     <%=f.fields_for :reviews do |m|%>

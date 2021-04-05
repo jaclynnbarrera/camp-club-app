@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_045004) do
+ActiveRecord::Schema.define(version: 2021_04_05_000130) do
 
   create_table "campsites", force: :cascade do |t|
     t.string "name"
-    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
+    t.string "rv"
+    t.string "bathroom"
+    t.string "firewood"
+    t.string "pets"
   end
 
   create_table "reviews", force: :cascade do |t|
