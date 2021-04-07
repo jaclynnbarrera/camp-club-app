@@ -6,11 +6,11 @@ Camp Club is a website where campers can explore different campsites throughout 
 
 ### Installation
 1. Fork and clone repo to your local machine. 
-2. Use 'bundle install' to install dependencies.
+2. Run `bundle install` to install dependencies.
 
 ### Usage
-1. Run rake db:migrate
-2. Run rails s. Then you can head over to http://localhost:3000/ and view the application!
+1. Run `rake db:migrate`
+2. Run `rails s`. Then you can head over to http://localhost:3000/ and view the application!
 
 
 ### Contributing
