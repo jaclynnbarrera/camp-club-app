@@ -1,4 +1,4 @@
-<h1>hi there, <%=@user.username%></h1>
+<h1>camper: <%=@user.username%></h1>
 <h4>CAMP CLUB member since: <%=@user.created_at.strftime("%B %Y")%></h4>
 
 <u><h2><%=@user.username%>'s visited campsites</h2></u>
@@ -7,4 +7,4 @@
     <p><%=link_to r.campsite.name, campsite_path(r.campsite)%> | <%=link_to "See Review", review_path(r)%></p>
 <%end%>
 
-<h2><%=link_to "Explore All Campsites", campsites_path%></h2>
+<h2><%=link_to "explore all campsites", campsites_path%></h2>

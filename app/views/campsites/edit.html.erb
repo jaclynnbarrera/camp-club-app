@@ -1,15 +1,17 @@
-<h1>Edit Campsite</h1>
+<body>
+    <h1>Edit Campsite</h1>
 
-<% @errors && @errors.each do |e|%>
-    <li><%=e%></li>
-<%end%>
+    <% @errors && @errors.each do |e|%>
+        <li><%=e%></li>
+    <%end%>
 
-<%= form_for @campsite do |f| %>
+    <%= form_for @campsite do |f| %>
 
-    <label>Name<label><br>
-    <%= f.text_field :name%><br><br>
+        <label>Name<label><br>
+           <%= f.text_field :name%><br><br>
 
-    <%= f.submit %>
-<% end %><br>
+           <%= f.submit %>
+    <% end %><br>
 
-<br><%=button_to("Delete Campsite", @campsite, method: :delete) %>
+    <br><%=button_to("Delete Campsite", @campsite, method: :delete) %>
+</body>

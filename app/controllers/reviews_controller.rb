@@ -39,6 +39,7 @@ class ReviewsController < ApplicationController
 
     def edit 
         @review = Review.find(params[:id])
+        redirect_to review_path(@review)
     end
 
     def update

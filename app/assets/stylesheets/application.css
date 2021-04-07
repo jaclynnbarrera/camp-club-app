@@ -35,5 +35,12 @@
     font-family: monospace;
     background-color: beige;
     text-align: center;
-    padding: 200px
+    padding: 200px;
+}
+
+body {
+    background-color: beige;
+    font-family: monospace;
+    text-align: center;
+    padding: 200px;
 }

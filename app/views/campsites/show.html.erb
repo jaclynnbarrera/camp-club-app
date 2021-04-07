@@ -1,7 +1,7 @@
 <h1><%=@campsite.name%></h1>
 <h2>State: <%=@campsite.state%></h2>
 
-<u><h2>Campsite Attributes</h2></u>
+<u><h2>Campsite Amenities</h2></u>
 
 <h3>Has Hookup RV? <%=@campsite.rv%></h3>
 
@@ -13,11 +13,11 @@
 
 <u><h2>Campsite Reviews (<%=@campsite.reviews.count%>) </h2></u>
 
-
 <%@campsite.reviews.take(3).each do |r|%>
     <p><li>Rating: <%= r.rating%></li>
     <li>Review: <%= r.review%></li>
-    <li><%= r.created_at.strftime("%B %Y")%></li></p>
+    <li>Visited: <%= r.created_at.strftime("%B %Y")%></li>
+    <li>Posted by: <%= link_to self.find_user(r), user_path(r.user_id)%></li></p>
 <%end%>
 
 <h4><%=link_to "See All Reviews", campsite_reviews_path(@campsite)%> </h4>
