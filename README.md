@@ -2,7 +2,7 @@
 
 ### Introduction
 
-Camp Club is a website where campers can explore different campsites throughout the US, see key attributes like RV hookup? campfire? bathrooms/showers accessible? etc. Campers can leave reviews for their favorite campsites and see other campers who have also stayed there. Campers can also create a new campsite if it's not in the database. Campers can also search for campsites by state.
+Camp Club is a website where campers can explore different campsites throughout the US and see important ammenities like RV hookup? campfire? bathrooms/showers accessible? etc. Campers can leave reviews for their favorite campsites and see other campers who have also stayed there. Campers can also create a new campsite if it's not in the database. Campers can also search for campsites by state.
 
 ### Installation
 1. Fork and clone repo to your local machine. 
