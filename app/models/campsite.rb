@@ -5,11 +5,11 @@ class Campsite < ApplicationRecord
     before_validation :make_title_case
     accepts_nested_attributes_for :reviews
 
-    # scope(:state_search, ->(state) {self.where("state == ?"), state) } )
+    scope(:state_search, ->(state) {self.where("state == ?", state) } )
 
-    def self.state_search(state)
-      self.where("state == ?", state)
-    end
+    # def self.state_search(state)
+    #   self.where("state == ?", state)
+    # end
 
     def make_title_case
         self.name = self.name.titlecase

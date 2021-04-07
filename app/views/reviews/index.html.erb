@@ -5,5 +5,6 @@
 <%@reviews.each do |r|%>
     <p><li>Rating: <%= r.rating%></li>
     <li>Review: <%= r.review%></li>
-    <li>Posted: <%= r.created_at.strftime("%B %Y")%></li></p>
+    <li>Visited: <%= r.created_at.strftime("%B %Y")%></li>
+    <li>Posted by: <%= link_to self.find_user(r), user_path(r.user_id) %></li></p>
     <%end%>
