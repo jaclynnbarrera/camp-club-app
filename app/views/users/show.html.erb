@@ -1,10 +1,10 @@
+<body>
+<div class="users-homepage">
 <h1>camper: <%=@user.username%></h1>
 <h4>CAMP CLUB member since: <%=@user.created_at.strftime("%B %Y")%></h4>
 
 <u><h2><%=@user.username%>'s visited campsites</h2></u>
 
-<%@reviews.each do |r| %>
-    <p><%=link_to r.campsite.name, campsite_path(r.campsite)%> | <%=link_to "See Review", review_path(r)%></p>
+<% @reviews.each do |r|%>
+    <%= link_to r.campsite.name, campsite_path(r.campsite)  %><br><br>
 <%end%>
-
-<h2><%=link_to "explore all campsites", campsites_path%></h2>

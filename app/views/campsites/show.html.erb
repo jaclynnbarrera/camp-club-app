@@ -1,3 +1,5 @@
+<body>
+<div class="campsites">
 <h1><%=@campsite.name%></h1>
 <h2>State: <%=@campsite.state%></h2>
 
@@ -13,13 +15,18 @@
 
 <u><h2>Campsite Reviews (<%=@campsite.reviews.count%>) </h2></u>
 
+
 <%@campsite.reviews.take(3).each do |r|%>
-    <p><li>Rating: <%= r.rating%></li>
-    <li>Review: <%= r.review%></li>
-    <li>Visited: <%= r.created_at.strftime("%B %Y")%></li>
-    <li>Posted by: <%= link_to self.find_user(r), user_path(r.user_id)%></li></p>
+<div class="reviews">
+        <h3><%= self.find_user(r)%></h3>
+        <h3><%= self.star_rating(r)%></h3>
+        <%= r.created_at.strftime("%B %Y")%>
+        <p><%= r.review%></p>
+        <p>view <%= link_to self.find_user(r), user_path(r.user_id)%>'s profile</p>
+        </div>
 <%end%>
 
 <h4><%=link_to "See All Reviews", campsite_reviews_path(@campsite)%> </h4>
-
 <h4><%=link_to "Write A Review", new_campsite_review_path(@campsite)%></h4>
+
+</body>

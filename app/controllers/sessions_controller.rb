@@ -21,11 +21,11 @@ class SessionsController < ApplicationController\
 
     def destroy
         session.clear
-        redirect_to '/signup'
+        redirect_to '/'
     end
 
     def FBcreate
-        @user = User.find_or_create_by(username: auth) do |u| 
+        @user = User.find_or_create_by(username: auth.downcase) do |u| 
             u.password = "password"
             #trigger email to set real password
         end

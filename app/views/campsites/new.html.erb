@@ -1,3 +1,6 @@
+<body>
+<div class="campsite-form">
+
 <h1>New Campsite</h1>
 
 <% @errors && @errors.each do |e|%>
@@ -10,33 +13,34 @@
     <%=f.text_field :name%><br><br>
 
     <%=f.label "State"%>
-    <%= f.select :state, collection: Campsite::STATES %>
-
+    <%= f.select :state, collection: Campsite::STATES %><br><br>
+    <br>
     <%=f.label "Has RV Hookups?"%>
-    <%=f.select :rv, ['YES', 'NO']%>
-
+    <%=f.select :rv, ['YES', 'NO']%><br><br>
+    <br>
     <%=f.label "Bathroom/Shower?"%>
-    <%=f.select :bathroom, ['YES', 'NO']%>
-
+    <%=f.select :bathroom, ['YES', 'NO']%><br>
+    <br>
     <%=f.label "Firewood for Sale?"%>
-    <%=f.select :firewood, ['YES', 'NO']%>
-
+    <%=f.select :firewood, ['YES', 'NO']%><br>
+    <br>
     <%=f.label "Pet Friendly?"%>
     <%=f.select :pets, ['YES', 'NO']%>
-
+    <br>
     <h3><%=f.label "Review"%></h3>
     <%=f.fields_for :reviews do |m|%>
         <%=m.label "Rating"%>
         <%=m.select :rating, ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars']%><br><br>
-
-        <%=m.label "Review"%><br>
+        <br>
+        <%=m.label "Review"%>
         <%=m.text_area :review %><br>
-
+        <br>
         <%=m.label "User"%><br>
-        <%=m.collection_select :user_id, User.all, :id, :username%><br>
+        <%=m.collection_select :user_id, User.all, :id, :username%><br><br>
 
     <%end%><br>
     <%= f.submit "Create New Campsite" %>
 
 <% end %>
-
+    </div>
+<body>

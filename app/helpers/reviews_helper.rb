@@ -8,6 +8,9 @@ module ReviewsHelper
     def find_user(review)
         @user = User.find_by(id: review.user_id).username
     end
-    
+
+    def star_rating(review)
+        "🌟" * (review.rating)
+    end
 end
 
