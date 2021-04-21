@@ -14,6 +14,7 @@ class CampsitesController < ApplicationController
     def new
         @campsite = Campsite.new
         @campsite.reviews.build
+        @user = current_user
     end
 
     def create 

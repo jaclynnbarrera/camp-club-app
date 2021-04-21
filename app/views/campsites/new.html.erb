@@ -35,9 +35,7 @@
         <%=m.label "Review"%>
         <%=m.text_area :review %><br>
         <br>
-        <%=m.label "User"%><br>
-        <%=m.collection_select :user_id, User.all, :id, :username%><br><br>
-
+        <%= m.hidden_field :user_id, value: @user.id %>
     <%end%><br>
     <%= f.submit "Create New Campsite" %>
 
