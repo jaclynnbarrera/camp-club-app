@@ -15,15 +15,13 @@
 
 <u><h2>Campsite Reviews (<%=@campsite.reviews.count%>) </h2></u>
 
-
 <%@campsite.reviews.take(3).each do |r|%>
-<div class="reviews">
-        <h3><%= self.find_user(r)%></h3>
-        <h3><%= self.star_rating(r)%></h3>
-        <%= r.created_at.strftime("%B %Y")%>
+    <div class="reviews">
+        <h3><%= self.find_user(r)%><br></h3>
+        <%= self.star_rating(r)%> <%= r.created_at.strftime("%B %Y")%>
         <p><%= r.review%></p>
         <p>view <%= link_to self.find_user(r), user_path(r.user_id)%>'s profile</p>
-        </div>
+    </div>
 <%end%>
 
 <h4><%=link_to "See All Reviews", campsite_reviews_path(@campsite)%> </h4>

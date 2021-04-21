@@ -1,8 +1,10 @@
 <u><h1>All Reviews for <%=@campsite.name%></h1></u>
 
 <%@reviews.each do |r|%>
-    <p><li>Rating: <%= r.rating%></li>
-    <li>Review: <%= r.review%></li>
-    <li>Visited: <%= r.created_at.strftime("%B %Y")%></li>
-    <li>Posted by: <%= link_to self.find_user(r), user_path(r.user_id) %></li></p>
+        <div class="reviews-index">
+            <h3><%= self.find_user(r)%><br></h3>
+            <%= self.star_rating(r)%> <%= r.created_at.strftime("%B %Y")%>
+            <p><%= r.review%></p>
+            <p>view <%= link_to self.find_user(r), user_path(r.user_id)%>'s profile</p>
+        </div>
     <%end%>
