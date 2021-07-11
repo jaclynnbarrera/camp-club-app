@@ -12,9 +12,14 @@ class CampsitesController < ApplicationController
     end 
  
     def new
-        @campsite = Campsite.new
-        @campsite.reviews.build
-        @user = current_user
+        if current_user == nil
+            flash[:alert] = 'Must be logged in to submit a new campsite'
+            redirect_to new_user_path
+        else 
+            @campsite = Campsite.new
+            @campsite.reviews.build
+            @user = current_user
+        end
     end
 
     def create 

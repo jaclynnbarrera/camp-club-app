@@ -2,6 +2,10 @@
 <div class="sign-up-log-in">
 <h1>Sign Up</h1>
 
+  <% if flash[:alert] %>
+    <div class="notice"><%= flash[:alert] %></div>
+  <% end %>
+
 <% @errors && @errors.each do |e|%>
     <li><%=e%></li>
 <%end%>
@@ -18,5 +22,5 @@
 <% end %>
 <br>
     <%= link_to('Log in with Facebook!', '/auth/facebook') %> 
-</body>
 </div>
+</body>

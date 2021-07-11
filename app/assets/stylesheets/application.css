@@ -15,63 +15,69 @@
  */
 
 .field_with_errors input {
-    border-color: red;
+  border-color: red;
 }
 
 .field_with_errors textarea {
-    border-color: red;
+  border-color: red;
+}
+
+.notice {
+  color: red;
 }
 
 .home-page {
-    color: green;
-    font-family: monospace;
-    /* background-color: beige; */
-    text-align: center;
-    image-align: center;
-    padding: 200px
+  color: green;
+  font-family: monospace;
+  /* background-color: beige; */
+  text-align: center;
+  image-align: center;
+  padding: 200px;
 }
 
 body {
-    background-color: beige;
-    font-family: monospace;
-    text-align: center;
+  background-color: beige;
+  font-family: monospace;
+  text-align: center;
 }
 
-.nav ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-  }
-  
-.nav ul li{
-    float: left;
-    border-right: 1px solid black;
-    padding: 14px;
-    background-color: white;
-  }
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+}
 
-  .nav li:last-child {
-    border-right: none;
-  } */
+.nav ul li {
+  float: left;
+  border-right: 1px solid black;
+  padding: 14px;
+  background-color: white;
+}
 
-  .users-homepage, .campsites, .sign-up-log-in, .campsite-index {
-      padding: 200px;
-  }
+.nav li:last-child {
+  border-right: none;
+}
+*/ .users-homepage,
+.campsites,
+.sign-up-log-in,
+.campsite-index {
+  padding: 200px;
+}
 
-  .campsite-form {
-      padding: 75px
-  }
+.campsite-form {
+  padding: 75px;
+}
 
-  div.reviews {
-      padding: 10px;
-      border: 4px solid black;
-      display: inline-block;
-  }
+div.reviews {
+  padding: 10px;
+  border: 4px solid black;
+  display: inline-block;
+}
 
-  div.reviews-index {
-      text-align: left;
-      padding: 10px;
-      border-bottom: 1px solid black;
-  }
+div.reviews-index {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}

@@ -23,4 +23,8 @@
 <h2><%=link_to "Add a New Campsite", new_campsite_path%></h2>
 
 </div>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 </body>
