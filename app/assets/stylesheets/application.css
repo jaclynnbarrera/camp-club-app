@@ -31,7 +31,6 @@
   font-family: monospace;
   /* background-color: beige; */
   text-align: center;
-  image-align: center;
   padding: 200px;
 }
 
@@ -59,7 +58,8 @@ body {
 .nav li:last-child {
   border-right: none;
 }
-*/ .users-homepage,
+
+.users-homepage,
 .campsites,
 .sign-up-log-in,
 .campsite-index {
