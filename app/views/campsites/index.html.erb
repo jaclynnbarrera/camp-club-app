@@ -5,6 +5,7 @@
 
 <h1>Explore Campsites</h1>
 
+
 <h3>Search By State</h3>
 
 <%=form_tag campsites_path, method: :get do %>
@@ -12,8 +13,11 @@
     <%=submit_tag%>
 <%end%>
 
+
+
 <%@campsites.each do |c|%>
-    <h3><%=link_to c.name, campsite_path(c)%> (<%=c.state%>)</h3>
+    <h3><%=link_to c.name, campsite_path(c)%> (<%=c.state%>) | <%=c.reviews.count%></h3>
+
 <%end%>
 
 <h2><%=link_to "Add a New Campsite", new_campsite_path%></h2>

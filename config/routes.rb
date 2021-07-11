@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :reviews, only: [:show, :index, :edit]
+  resources :reviews, only: [:show, :index, :edit, :update]
+
+  get '/lucky', to: 'campsites#lucky'
   
   get '/signup', to: 'users#new', as: "signup"
   post '/signup', to: 'users#create'

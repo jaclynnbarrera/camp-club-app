@@ -53,6 +53,10 @@ class CampsitesController < ApplicationController
         redirect_to campsites_path
     end
 
+    def lucky
+        @campsite = Campsite.all.sample(1)[0]
+    end
+
     private
 
     def campsite_params

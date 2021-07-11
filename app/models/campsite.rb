@@ -6,7 +6,6 @@ class Campsite < ApplicationRecord
     accepts_nested_attributes_for :reviews
 
     scope(:state_search, ->(state) {self.where("state == ?", state) } )
-
     # def self.state_search(state)
     #   self.where("state == ?", state)
     # end

@@ -19,6 +19,7 @@
       <li><%=link_to "All Campsites", campsites_path%></li>
       <li><%=link_to "New Campsite", new_campsite_path%></li>
       <li><%=link_to "My Profile", user_path(current_user.id)%></li>
+      <li><%=link_to "I'm Feeling Lucky", lucky_path  %>
       <li style="float:right"><%=button_to "Log Out", logout_path, method: :post %></li>
     </ul>
     <%else%>
