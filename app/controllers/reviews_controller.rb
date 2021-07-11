@@ -14,7 +14,10 @@ class ReviewsController < ApplicationController
     end
 
     def new 
-        if params[:campsite_id]
+        if current_user == nil
+            flash[:alert] = 'Must be logged in to submit a new campsite'
+            redirect_to new_user_path
+        elsif params[:campsite_id]
             @campsite = Campsite.find_by(id: params[:campsite_id])
             @review = @campsite.reviews.build
         else
