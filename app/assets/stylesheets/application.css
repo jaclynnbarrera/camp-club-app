@@ -29,7 +29,6 @@
 .home-page {
   color: green;
   font-family: monospace;
-  /* background-color: beige; */
   text-align: center;
   padding: 200px;
 }
@@ -63,7 +62,7 @@ body {
 .campsites,
 .sign-up-log-in,
 .campsite-index {
-  padding: 200px;
+  padding: 100px;
 }
 
 .campsite-form {
