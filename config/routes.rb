@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:show, :index, :edit, :update]
 
   get '/lucky', to: 'campsites#lucky'
+  get '/about', to: 'application#about'
   
   get '/signup', to: 'users#new', as: "signup"
   post '/signup', to: 'users#create'
