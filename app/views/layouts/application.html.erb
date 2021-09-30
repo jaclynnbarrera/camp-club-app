@@ -12,61 +12,29 @@
   </head>
 
   <body>
-  <nav class="bg-yellow-50 shadow-lg">
+  <nav class="bg-yellow-50 shadow-lg" >
     <div class="container mx-auto">
-      <div class="sm:flex justify-around">
+      <div class="sm:flex justify-around" >
       <%# site title %>
-        <a href="#" class="text-black text-3xl font-bold p-3">Camp Club</a>
-
-        <%# menu items is current_user %>
-
+        <a href="#" class="text-black text-3xl">Camp Club</a>
         <%if current_user %>
-
         <ul class="text-black sm:self-center text-xl border-t sm:border-none">
-          <li class="sm:inline-block">
-          <a>
-            <%=link_to "All Campsites", campsites_path%>
-          </li>
-          </ul>
+          <li class="sm:inline-block"><%=link_to "All Campsites", campsites_path%></li>
+          <li class="sm:inline-block"><%=link_to "New Campsite", new_campsite_path%></li>
+          <li class="sm:inline-block"><%=link_to "My Profile", user_path(current_user.id)%></li>
+          <li style="float:right"><%=button_to "Log Out", logout_path, method: :post %></li>
+        </ul>
         <%else%>
-        <li class="sm:inline-block">
+        <ul class="text-black sm:self-center text-xl border-t sm:border-none flex space-x-7">
         
-        <%=link_to "Explore Campsites", campsites_path%>
-
-        
-        </li>
+        <li class="sm:inline-block" ><%=link_to "Explore Campsites", campsites_path%></li>
+        <li class="sm:inline-block"><%=link_to "Log In", login_path%></li>
+        <li class="sm:inline-block"><%=link_to "Sign Up", signup_path%></li>
+        </ul>
         <%end%>  
-
- 
+      <%= yield %>
       </div>
     </div>
   </nav>
-
-  <% 
-=begin %>
-    <nav>
-      <div>
-      <%if current_user %>
-      <ul>
-      <li><%=link_to "All Campsites", campsites_path%></li>
-      <li><%=link_to "New Campsite", new_campsite_path%></li>
-      <li><%=link_to "My Profile", user_path(current_user.id)%></li>
-      <li><%=link_to "I'm Feeling Lucky", lucky_path  %>
-      <li style="float:right"><%=button_to "Log Out", logout_path, method: :post %></li>
-      </ul>
-      <%else%>
-      <ul>
-      <li><%=link_to "Log In", login_path%></li>
-      <li><%=link_to "Sign Up", signup_path%></li>
-      <li><%=link_to "Explore Campsites", campsites_path%></li>
-      </ul>
-      <%end%>
-      </div>
-      <%= yield %>
-    </nav>
-    <% 
-=end %>
   </body>
-
-  
 </html>

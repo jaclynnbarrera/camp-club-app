@@ -5,6 +5,9 @@ import "channels";
 
 require("stylesheets/application.scss");
 
+//= require jquery
+//= require bootstrap-sprockets
+
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
