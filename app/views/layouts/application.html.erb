@@ -2,7 +2,7 @@
 <html>
   <head>
     <%# <link rel="stylesheet" href="app/assets/stylesheets/application.css">  %>
-    <title>CampClubApp</title>
+    <title>Camp Club</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,25 +12,60 @@
   </head>
 
   <body>
-  
-  <div class="nav">
-   <%if current_user %>
-    <ul>
+  <nav class="bg-yellow-50 shadow-lg">
+    <div class="container mx-auto">
+      <div class="sm:flex justify-around">
+      <%# site title %>
+        <a href="#" class="text-black text-3xl font-bold p-3">Camp Club</a>
+
+        <%# menu items is current_user %>
+
+        <%if current_user %>
+
+        <ul class="text-black sm:self-center text-xl border-t sm:border-none">
+          <li class="sm:inline-block">
+          <a>
+            <%=link_to "All Campsites", campsites_path%>
+          </li>
+          </ul>
+        <%else%>
+        <li class="sm:inline-block">
+        
+        <%=link_to "Explore Campsites", campsites_path%>
+
+        
+        </li>
+        <%end%>  
+
+ 
+      </div>
+    </div>
+  </nav>
+
+  <% 
+=begin %>
+    <nav>
+      <div>
+      <%if current_user %>
+      <ul>
       <li><%=link_to "All Campsites", campsites_path%></li>
       <li><%=link_to "New Campsite", new_campsite_path%></li>
       <li><%=link_to "My Profile", user_path(current_user.id)%></li>
       <li><%=link_to "I'm Feeling Lucky", lucky_path  %>
       <li style="float:right"><%=button_to "Log Out", logout_path, method: :post %></li>
-    </ul>
-    <%else%>
-    <ul>
+      </ul>
+      <%else%>
+      <ul>
       <li><%=link_to "Log In", login_path%></li>
       <li><%=link_to "Sign Up", signup_path%></li>
       <li><%=link_to "Explore Campsites", campsites_path%></li>
-    </ul>
-    <%end%>
-    </div>
-    <%= yield %>
+      </ul>
+      <%end%>
+      </div>
+      <%= yield %>
+    </nav>
+    <% 
+=end %>
   </body>
 
   
