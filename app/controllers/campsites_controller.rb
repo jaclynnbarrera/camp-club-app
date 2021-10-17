@@ -1,7 +1,10 @@
 class CampsitesController < ApplicationController
    
     def index 
-        @city = request.location.city
+        if Rails.env.production?
+            @city = request.location.city
+        end
+        
         binding.pry
 
         # if params[:user_id]
