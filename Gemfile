@@ -28,6 +28,8 @@ gem 'bcrypt'
 
 gem 'pry'
 
+gem 'geocoder'
+
 #Bootstrap
 
 
