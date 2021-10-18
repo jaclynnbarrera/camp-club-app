@@ -27,6 +27,7 @@ gem 'bcrypt'
 gem 'pry'
 gem 'geocoder'
 gem 'bootstrap', '~> 5.0'
+gem 'unsplash'
 
 #Bootstrap
 

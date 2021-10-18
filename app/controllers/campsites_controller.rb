@@ -24,7 +24,6 @@ class CampsitesController < ApplicationController
 
     def create 
         @campsite = Campsite.new(campsite_params)
-
         if @campsite.save
             redirect_to campsite_path(@campsite)
         else
@@ -67,6 +66,11 @@ class CampsitesController < ApplicationController
     def campsite_params
         params.require(:campsite).permit(:name, :state, :rv, :bathroom, :firewood, :pets, reviews_attributes: [:rating, :review, :user_id])
     end
+
+    def unsplash_api
+        @images = Unsplash::Photo.search("cats")
+    end
+
 
 end
 

@@ -1,25 +1,22 @@
 <body>
-<div class="campsite-index"> 
-
-<body>
-<h1>Explore Campsites</h1>
-
-<h3>Search By State</h3>
-
-<%=form_tag campsites_path, method: :get do %>
-    <%=text_field_tag :state%>
-    <%=submit_tag%>
-<%end%>
-
-<%@campsites.each do |c|%>
-    <h3><%=link_to c.name, campsite_path(c)%> (<%=c.state%>) | <%=c.reviews.count%></h3>
-
-<%end%>
-
-<h2><%=link_to "Submit a New Campsite", new_campsite_path%></h2>
+<div class="card-group">
+  <%@campsites.each do |c|%>
+    <div class="card">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= c.name%></h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"><%=c.reviews.count%> reviews</small>
+    </div>
+  </div>
+  <%end%>
 
 </div>
+
+<%# if someone navigates to page without login %>
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
+  
 </body>
