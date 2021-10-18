@@ -14,34 +14,34 @@
   <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="/">Camp Club</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="mb-2 navbar-nav me-auto mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <%=link_to "Campsites", campsites_path, class: 'nav-link'%>
+                </li>
+                <%if current_user %>
+                <li class="nav-item">
+                    <%=link_to "New Campsite", new_campsite_path, class: 'nav-link'%>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <%=link_to "My Profile", user_path(current_user.id), class: 'nav-link'%>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <%=link_to "Log out", logout_path, method: :post, class: 'nav-link'%>
                 </li>
+                <%else%>
+                <li class="nav-item">
+                    <%=link_to "Log In", login_path, class: 'nav-link'%>
+                </li>
+                <li class="nav-item">
+                    <%=link_to "Sign Up", signup_path, class: 'nav-link'%>
+                </li>
+                <%end%>  
+                <%= yield %>
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -50,35 +50,5 @@
         </div>
     </div>
 </nav>
-
-
-
-
-
-
-  
-    <div>
-      <div >
-      <%# site title %>
-        <a>Camp Club</a>
-        <%if current_user %>
-        <ul>
-          <li><%=link_to "All Campsites", campsites_path%></li>
-          <li><%=link_to "New Campsite", new_campsite_path%></li>
-          <li><%=link_to "My Profile", user_path(current_user.id)%></li>
-          <li><%=button_to "Log Out", logout_path, method: :post %></li>
-        </ul>
-        <%else%>
-        <ul>
-        
-        <li ><%=link_to "Explore Campsites", campsites_path%></li>
-        <li ><%=link_to "Log In", login_path%></li>
-        <li "><%=link_to "Sign Up", signup_path%></li>
-        </ul>
-        <%end%>  
-      <%= yield %>
-      </div>
-    </div>
-  
   </body>
 </html>

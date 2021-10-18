@@ -1,20 +1,14 @@
 class CampsitesController < ApplicationController
    
     def index 
-        if Rails.env.production?
-            @city = request.location.city
+        if params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            @campsites = user.campsites
+        elsif params[:state]
+            @campsites = Campsite.state_search(params[:state])
+        else
+            @campsites = Campsite.all
         end
-        
-        binding.pry
-
-        # if params[:user_id]
-        #     user = User.find_by(id: params[:user_id])
-        #     @campsites = user.campsites
-        # elsif params[:state]
-        #     @campsites = Campsite.state_search(params[:state])
-        # else
-        #     @campsites = Campsite.all
-        # end
     end 
  
     def new
