@@ -23,12 +23,10 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-
 gem 'bcrypt'
-
 gem 'pry'
-
 gem 'geocoder'
+gem 'bootstrap', '~> 5.0'
 
 #Bootstrap
 
