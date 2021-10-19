@@ -1,7 +1,6 @@
 class CampsitesController < ApplicationController
    
     def index 
-        @images = Unsplash::Photo.search("campsite")
         if params[:user_id]
             user = User.find_by(id: params[:user_id])
             @campsites = user.campsites
