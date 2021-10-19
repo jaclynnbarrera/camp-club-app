@@ -5,10 +5,12 @@
     <img class="card-img-top" src=<%= unsplash_api %> alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"><%= c.name%></h5>
+      <button type="button" class="btn btn-dark"><%=link_to "See Campsite", campsite_path(c.id)%></button>
     </div>
     <div class="card-footer">
       <small class="text-muted"><%=c.reviews.count%> reviews</small>
     </div>
+    
   </div>
   <%end%>
 
