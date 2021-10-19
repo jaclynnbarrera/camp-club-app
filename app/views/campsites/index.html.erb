@@ -1,8 +1,10 @@
 <body>
 <div class="card-group">
+<% i = 0 %>
   <%@campsites.each do |c|%>
+    <% i += 1 %>
     <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src=<%= @images[i]["urls"]["full"]%> alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"><%= c.name%></h5>
     </div>

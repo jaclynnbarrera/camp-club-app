@@ -1,6 +1,7 @@
 class CampsitesController < ApplicationController
    
     def index 
+        @images = Unsplash::Photo.search("campsite")
         if params[:user_id]
             user = User.find_by(id: params[:user_id])
             @campsites = user.campsites
@@ -66,11 +67,6 @@ class CampsitesController < ApplicationController
     def campsite_params
         params.require(:campsite).permit(:name, :state, :rv, :bathroom, :firewood, :pets, reviews_attributes: [:rating, :review, :user_id])
     end
-
-    def unsplash_api
-        @images = Unsplash::Photo.search("cats")
-    end
-
 
 end
 
